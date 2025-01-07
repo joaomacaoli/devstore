@@ -1,0 +1,55 @@
+import Image from "next/image";
+
+export default function ProductPage() {
+  return (
+    <section className="relative grid max-h-[860px] grid-cols-3">
+      <section className="col-span-2 overflow-hidden">
+        <Image
+          src="/moletom-never-stop-learning.png"
+          alt=""
+          width={1000}
+          height={1000}
+          quality={100}
+        />
+      </section>
+
+      <section className="flex flex-col justify-center px-12">
+        <h1 className="text-3xl font-bold leading-tight">
+          titulo
+        </h1>
+        <p className="mt-2 leading-relaxed text-zinc-400">
+          texto descrição
+        </p>
+
+        <section className="mt-8 flex items-center gap-3">
+          <span className="inline-block rounded-full bg-violet-500 px-5 py-2.5 font-semibold">
+            R$129
+          </span>
+          <span className="text-sm text-zinc-400">
+            Em 12x s/ juros de R$10,75
+          </span>
+        </section>
+
+        <section className="mt-8 space-y-4">
+          <span className="block font-semibold">Tamanhos</span>
+
+          <section className="flex gap-2">
+            <button
+              type="button"
+              className="flex h-9 w-14 items-center justify-center rounded-full border border-zinc-700 bg-zinc-800 text-sm font-semibold"
+            >
+              P
+            </button>
+          </section>
+        </section>
+
+        <button
+          type="button"
+          className="mt-8 flex h-12 items-center justify-center rounded-full bg-emerald-600 font-semibold text-white"
+        >
+          adicionar ao carrinho
+        </button>
+      </section>
+    </section>
+  )
+}
