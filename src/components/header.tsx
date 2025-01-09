@@ -1,7 +1,7 @@
 import Link from "next/link";
 import { IoSearch } from "react-icons/io5";
-import { FiShoppingBag } from "react-icons/fi";
 import Image from "next/image";
+import { CartWidget } from "./cart-widget";
 
 export default function Header() {
   return (
@@ -21,12 +21,9 @@ export default function Header() {
       </div>
 
       <div className="flex items-center gap-4">
-        <div className="flex items-center gap-2">
-          <FiShoppingBag className="h-4 w-4" />
-          <span className="text-sm">Cart (0)</span>
-        </div>
+        <CartWidget />
 
-        <div className="w-px h-4 bg-zinc-700"/>
+        <div className="w-px h-4 bg-zinc-700" />
 
         <Link href="/" className="flex items-center gap-2 hover:underline">
           <span className="text-sm">Account</span>
