@@ -4,22 +4,27 @@ on: push
 
 jobs:
   cypress-run:
-    runs-on: ubuntu-24.04
+    runs-on: ubuntu-22.04
     steps:
       - name: Checkout
         uses: actions/checkout@v4
 
-        - name: Install Node.js
+      - name: Install Node.js
         uses: actions/setup-node@v4
         with:
           node-version: 20
 
-      - name: Cypress run
-        uses: cypress-io/github-action@v6
+      - name: Install dependencies
+        run: npm install
+
+      - name: Build application
+        run: npm run build
+
+      - name: Start application
+        run: npm start &
         env:
           APP_URL: "http://localhost:3000"
           NEXT_PUBLIC_API_BASE_URL: "https://devstore-api-woad.vercel.app"
 
-        with:
-          build: npm run build
-          start: npm start
+      - name: Cypress run
+        uses: cypress-io/github-action@v6
