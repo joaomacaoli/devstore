@@ -4,7 +4,7 @@ on: push
 
 jobs:
   cypress-run:
-    runs-on: ubuntu-22.04
+    runs-on: ubuntu-24.04
     steps:
       - name: Checkout
         uses: actions/checkout@v4
@@ -19,12 +19,18 @@ jobs:
 
       - name: Build application
         run: npm run build
+        env:
+          NEXT_PUBLIC_API_BASE_URL: "https://devstore-api-woad.vercel.app"
+          APP_URL: "http://localhost:3000"
 
       - name: Start application
         run: npm start &
         env:
-          APP_URL: "http://localhost:3000"
           NEXT_PUBLIC_API_BASE_URL: "https://devstore-api-woad.vercel.app"
+          APP_URL: "http://localhost:3000"
 
       - name: Cypress run
         uses: cypress-io/github-action@v6
+        env:
+          NEXT_PUBLIC_API_BASE_URL: "https://devstore-api-woad.vercel.app"
+          APP_URL: "http://localhost:3000"
